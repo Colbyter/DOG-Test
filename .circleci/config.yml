@@ -7,20 +7,20 @@ jobs:
       - checkout
 
       - run:
-          command: terraform format
+        command: terraform format
 
       - run:
         command: terraform validate
 
       - run:
-          command: terraform plan
+        command: terraform plan
   apply:
     docker:
       - image: hashicorp/terraform:light
     steps:
       - checkout
       - run:
-          command: echo "yes" | terraform apply
+        command: echo "yes" | terraform apply
 
 workflows:
   version: 2
