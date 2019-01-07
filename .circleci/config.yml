@@ -10,7 +10,7 @@ jobs:
             terraform init
             terraform fmt
             terraform validate
-            terraform plan
+            terraform plan -var "access_key=$ACCESS_KEY" -var "secret_key=$SECRET_KEY"
 
   apply:
     docker:
