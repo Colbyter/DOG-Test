@@ -5,13 +5,10 @@ jobs:
       - image: hashicorp/terraform:light
     steps:
       - checkout
-
       - run:
-        command: terraform format
-
+        command: terraform fmt
       - run:
         command: terraform validate
-
       - run:
         command: terraform plan
   apply:
