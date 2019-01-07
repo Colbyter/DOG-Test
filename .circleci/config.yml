@@ -6,6 +6,8 @@ jobs:
     steps:
       - checkout
       - run:
+          command: terraform init
+      - run:
           command: terraform fmt
       - run:
           command: terraform validate
@@ -17,6 +19,8 @@ jobs:
       - image: hashicorp/terraform:light
     steps:
       - checkout
+      - run:
+          command: terraform init
       - run:
           command: terraform apply -auto-approve
 
