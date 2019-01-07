@@ -11,6 +11,7 @@ jobs:
         command: terraform validate
       - run:
         command: terraform plan
+
   apply:
     docker:
       - image: hashicorp/terraform:light
