@@ -6,13 +6,11 @@ jobs:
     steps:
       - checkout
       - run:
-          command: terraform init
-      - run:
-          command: terraform fmt
-      - run:
-          command: terraform validate
-      - run:
-          command: terraform plan
+          command: |
+            terraform init
+            terraform fmt
+            terraform validate
+            terraform plan
 
   apply:
     docker:
@@ -20,9 +18,9 @@ jobs:
     steps:
       - checkout
       - run:
-          command: terraform init
-      - run:
-          command: terraform apply -auto-approve
+          command: |
+            terraform init
+            terraform apply -auto-approve -var "access_key=$ACCESS_KEY" -var "secret_key=$SECRET_KEY"
 
 workflows:
   version: 2
