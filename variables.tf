@@ -6,7 +6,7 @@ default = "$ACCESS_KEY"
 
 variable "secret_key" {
 
-default = "$SECRET_KEY
+default = "$SECRET_KEY"
 }
 
 variable "region" {
