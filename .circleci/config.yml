@@ -19,7 +19,6 @@ jobs:
       - checkout
       - run:
           command: |
-            curl https://packages.outlyer.com/outlyer-agent.sh | AGENT_KEY=$AGENT_KEY bash
             terraform init
             terraform apply -auto-approve -var "access_key=$ACCESS_KEY" -var "secret_key=$SECRET_KEY"
 

@@ -1,3 +1,3 @@
-# Wordpress
+# Wordpress Demo Page
 
-Launching a user's blog with WordPress.
+This Demo launches a WordPress blog page.
