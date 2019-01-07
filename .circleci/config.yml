@@ -6,11 +6,11 @@ jobs:
     steps:
       - checkout
       - run:
-        command: terraform fmt
+          command: terraform fmt
       - run:
-        command: terraform validate
+          command: terraform validate
       - run:
-        command: terraform plan
+          command: terraform plan
 
   apply:
     docker:
@@ -18,7 +18,7 @@ jobs:
     steps:
       - checkout
       - run:
-        command: terraform apply -auto-approve
+          command: terraform apply -auto-approve
 
 workflows:
   version: 2
