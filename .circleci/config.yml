@@ -1,37 +1,37 @@
 version: 2
 jobs:
-  format_plan:
-    docker:
-      - image: hashicorp/terraform:light
-    steps:
-      - checkout
-      - run:
-        command: terraform fmt
-      - run:
-        command: terraform validate
-      - run:
-        command: terraform plan
+	format_plan:
+		docker:
+			- image: hashicorp/terraform:light
+		steps:
+			- checkout
+			- run:
+				command: terraform fmt
+			- run:
+				command: terraform validate
+			- run:
+				command: terraform plan
 
-  apply:
-    docker:
-      - image: hashicorp/terraform:light
-    steps:
-      - checkout
-      - run:
-        command: echo "yes" | terraform apply
+	apply:
+		docker:
+			- image: hashicorp/terraform:light
+		steps:
+			- checkout
+			- run:
+				command: echo "yes" | terraform apply
 
 workflows:
-  version: 2
-  build_test:
-    jobs:
-      - apply:
-          filters:
-            branches:
-              only: master
-          requires:
-            - format_plan
-      - format_plan:
-          filters:
-            branches:
-              only: master
+	version: 2
+	build_test:
+		jobs:
+			- apply:
+					filters:
+						branches:
+							only: master
+					requires:
+						- format_plan
+			- format_plan:
+					filters:
+						branches:
+							only: master
 
