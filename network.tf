@@ -1,5 +1,5 @@
 resource "aws_security_group" "wordpress_sg" {
-  name = "wordpress_secg"
+  name = "wordpress_sg"
 
   ingress {
     from_port   = "${var.http}"
