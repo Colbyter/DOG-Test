@@ -18,7 +18,7 @@ jobs:
     steps:
       - checkout
       - run:
-        command: echo "yes" | terraform apply
+        command: terraform apply -auto-approve
 
 workflows:
   version: 2
