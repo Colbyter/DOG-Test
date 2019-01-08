@@ -23,3 +23,7 @@ variable "ssh" {
 }
 
 
+variable "ssh_key" {
+	
+	default = ""
+}

@@ -10,7 +10,7 @@ jobs:
             terraform init
             terraform fmt
             terraform validate
-            terraform plan -var "access_key=$ACCESS_KEY" -var "secret_key=$SECRET_KEY"
+            terraform plan -var "access_key=$ACCESS_KEY" -var "secret_key=$SECRET_KEY" -var "ssh_key=$PUBLIC_KEY"
 
   apply:
     docker:
@@ -20,7 +20,7 @@ jobs:
       - run:
           command: |
             terraform init
-            terraform apply -auto-approve -var "access_key=$ACCESS_KEY" -var "secret_key=$SECRET_KEY"
+            terraform apply -auto-approve -var "access_key=$ACCESS_KEY" -var "secret_key=$SECRET_KEY" -var "ssh_key=$PUBLIC_KEY"
 
 workflows:
   version: 2

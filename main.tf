@@ -15,4 +15,22 @@ resource "aws_instance" "wordpress" {
 
   vpc_security_group_ids = ["${aws_security_group.wordpress_sg.id}"]
 
+  connection {
+
+   type = "ssh"
+   user = "bitnami"
+   host_key = "${var.ssh_key}"
+
+   }
+
+   provisioner "remote-exec" {
+
+     inline = [ 
+        
+         "sudo /opt/bitnami/letsencrypt/scripts/generate-certificate.sh  -d interviews.devopsgroup.co"
+        
+     ]
+
+   }
+
 }
