@@ -6,16 +6,17 @@ provider "aws" {
 }
 
 
+/*
 resource "aws_key_pair" "keys" {  
   key_name = "interviewuser1"
   public_key = "${var.ssh_key}"
 }
-
+*/
 
 resource "aws_instance" "wordpress" {
   ami  = "ami-0032350a991893dac"
   instance_type = "t2.micro"
-  key_name = "${aws_key_pair.keys.key_name}"
+  key_name = "interviewuser1"
 
   tags = {
     Name = "Wordpress"
@@ -30,7 +31,7 @@ resource "aws_instance" "wordpress" {
          "sudo /opt/bitnami/letsencrypt/scripts/generate-certificate.sh  -d interviews.devopsgroup.co"
         
      ]
-     
+
      connection {
    user = "bitnami"
    agent = false
