@@ -1,12 +1,8 @@
 variable "access_key" {
-
-default = "$ACCESS_KEY"
   
 }
 
 variable "secret_key" {
-
-default = "$SECRET_KEY"
 }
 
 variable "region" {
@@ -15,6 +11,10 @@ variable "region" {
 
 variable "http" {
   default = 80
+}
+
+variable "https" {
+  default = 443
 }
 
 variable "ssh" {
