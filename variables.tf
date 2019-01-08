@@ -22,8 +22,10 @@ variable "ssh" {
   default = 22
 }
 
-
+/*
 variable "ssh_key" {
 	
 	default = ""
 }
+
+*/

@@ -6,17 +6,25 @@ provider "aws" {
 }
 
 
-/*
-resource "aws_key_pair" "keys" {  
-  key_name = "interviewuser1"
-  public_key = "${var.ssh_key}"
+
+resource "tls_private_key" "terraform_key" {
+  algorithm = "RSA"
+  rsa_bits  = 4096
 }
-*/
+
+
+
+resource "aws_key_pair" "keys" {  
+  key_name = "dog-test"
+  public_key = "${tls_private_key.terraform_key.public_key_openssh}"
+}
+
+
 
 resource "aws_instance" "wordpress" {
   ami  = "ami-0032350a991893dac"
   instance_type = "t2.micro"
-  key_name = "interviewuser1"
+  key_name = "${aws_key_par.keys.key_name}"
 
   tags = {
     Name = "Wordpress"
@@ -35,6 +43,8 @@ resource "aws_instance" "wordpress" {
      connection {
    user = "bitnami"
    agent = false
+   #host_key = "${var.ssh_key}"
+   private_key = "${tls_private_key.terraform_key.private_key_pem}"
 
    }
 
