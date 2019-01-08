@@ -6,7 +6,7 @@ provider "aws" {
 }
 
 resource "aws_instance" "wordpress" {
-  ami           = "ami-0032350a991893dac"
+  ami  = "ami-0032350a991893dac"
   instance_type = "t2.micro"
 
   tags = {
