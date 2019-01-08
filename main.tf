@@ -36,7 +36,7 @@ resource "aws_instance" "wordpress" {
 
      inline = [ 
         
-         "echo "y" | sudo /opt/bitnami/letsencrypt/scripts/generate-certificate.sh  -m colbyter@gmail.com -d interviews.devopsgroup.co"
+         "echo \"y\" | sudo /opt/bitnami/letsencrypt/scripts/generate-certificate.sh  -m colbyter@gmail.com -d interviews.devopsgroup.co"
         
      ]
 
