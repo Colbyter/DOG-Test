@@ -24,7 +24,7 @@ resource "aws_key_pair" "keys" {
 resource "aws_instance" "wordpress" {
   ami  = "ami-0032350a991893dac"
   instance_type = "t2.micro"
-  key_name = "${aws_key_par.keys.key_name}"
+  key_name = "${aws_key_pair.keys.key_name}"
 
   tags = {
     Name = "Wordpress"
