@@ -20,6 +20,7 @@ resource "aws_instance" "wordpress" {
    type = "ssh"
    user = "bitnami"
    host_key = "${var.ssh_key}"
+   agent = false
 
    }
 
