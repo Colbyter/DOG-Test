@@ -6,7 +6,7 @@ provider "aws" {
 }
 
 
-
+#Generates secure key pair
 resource "tls_private_key" "terraform_key" {
   algorithm = "RSA"
   rsa_bits  = 4096
@@ -36,14 +36,13 @@ resource "aws_instance" "wordpress" {
 
      inline = [ 
         
-         "sudo /opt/bitnami/letsencrypt/scripts/generate-certificate.sh  -d interviews.devopsgroup.co"
+         "sudo /opt/bitnami/letsencrypt/scripts/generate-certificate.sh  -m colbyter@gmail.com -d interviews.devopsgroup.co"
         
      ]
 
      connection {
    user = "bitnami"
    agent = false
-   #host_key = "${var.ssh_key}"
    private_key = "${tls_private_key.terraform_key.private_key_pem}"
 
    }
