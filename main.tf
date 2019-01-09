@@ -6,17 +6,15 @@ provider "aws" {
 }
 
 
-
 resource "aws_instance" "wordpress" {
   ami  = "ami-0032350a991893dac"
   instance_type = "t2.micro"
-  key_name = "dog-test"
+  #key_name = "dog-test"
 
   tags = {
     Name = "Wordpress"
   }
 
   vpc_security_group_ids = ["${aws_security_group.wordpress_sg.id}"]
-
    
 }
